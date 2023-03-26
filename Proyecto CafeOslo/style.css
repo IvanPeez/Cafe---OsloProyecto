@@ -1,0 +1,574 @@
+*{
+    margin: 0rem;
+    box-sizing: border-box;
+}
+
+:root{
+    --redDark:#d03b40;
+    --beige:#ded6c0;
+    --whiteCler:#f5f0ed;
+    --clasGray:#241d1b;
+    --textWhite:#f5f0ed;
+    --textDark:#3c3c3b;
+}
+
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper{
+    width: 90% auto;
+    margin: 0 ;
+    overflow: hidden;
+}
+
+.headerContent{
+    background-image: url(./Proyecto/Imágenes/Fondo1.jpg) ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.imgMenu{
+    width: 40px;
+}
+
+.menuNav{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+
+    --transform-hamburguer: scale(1);
+    --transform-close: scale(0);
+}
+.menuNav:has(.menuLink:target){
+    --transform-hamburguer: scale(0);
+    --transform-close: scale(1);
+}
+
+.menuNav::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.66);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+.menuNav:has(.menuLink:target)::before{
+    pointer-events: unset;
+    opacity: 1;
+}
+
+.logoNav{
+    display: block;
+    margin: 1rem;
+}
+
+.openMenu, .closeMenu{
+    margin: auto 1rem;
+    grid-column: span 1 / -1;
+    grid-row: 1/2;
+    transition: .2s transform;
+}
+
+.openMenu{
+    transform: var(--transform-hamburguer);
+}
+
+.closeMenu{
+    transform: var(--transform-close);
+
+}
+
+.menuLink:target{
+    opacity: 1;
+    pointer-events: unset;
+    transition-duration: .6s;
+}
+
+
+.menuLink{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    max-width: 330px;
+    background-color: var(--whiteCler);
+    display: grid;
+    gap: 1em;
+    grid-auto-rows: max-content;
+    padding: 100px 0 80px 40px;
+    overflow-y: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.menuLinka{
+    color: var(--textDark);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.heroTitle{
+    color: var(--textWhite);
+    overflow:auto;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: auto 2rem;
+    border-bottom: solid var(--beige) 3px;
+}
+
+.parrafoHero{
+    color: var(--whiteCler);
+    margin: 2rem 2rem;
+    text-align: center;
+    font-size: large;
+
+}
+
+.contentAside{
+    grid-area: aside;
+}
+
+.brunchDomingos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--redDark);
+    justify-content: center;
+}
+
+.titleBrunch{
+    color: var(--beige);
+    overflow:auto;
+    text-align: center;
+    padding-top: 2rem;
+    margin: auto 2rem;
+}
+
+.parrafoBrunch{
+    color: var(--beige);
+    padding: 10%;
+    text-align: center;
+    font-size: large;
+}
+
+.celebraFiesta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--beige);
+    justify-content: center;
+}
+
+.titleFiesta{
+    color: var(--redDark);
+    overflow:auto;
+    text-align: center;
+    padding-top: 2rem;
+    margin: auto 2rem;
+}
+
+.parrafoFiesta{
+    color: var(--redDark);
+    padding: 10%;
+    text-align: center;
+    font-size: large;
+}
+
+.desayunar{
+    background-image: url(./Proyecto/Imágenes/Fondo2.jpg) ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleDesayunar{
+    color: var(--textWhite);
+    overflow:auto;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.parrafoDesayunar{
+    color: var(--textWhite);
+    padding: 10%;
+    text-align: center;
+    font-size: large;
+}
+
+.buttonDesayunar{
+    margin-bottom: 10%;
+    padding: 1rem;
+    border: solid var(--whiteCler) 2px;
+    text-decoration: none;
+    color: var(--textWhite);
+    transition-duration: .6s;
+}
+
+.buttonDesayunar:hover{
+    color: var(--clasGray);
+    background-color: var(--whiteCler);
+}
+
+.iconProducts{
+    width: 80px;
+    margin: .5rem;
+}
+
+.productos{
+    grid-area: products;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0 2rem 0;
+}
+
+.productContents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleProductos{
+    text-align: center;
+    color: var(--textDark);
+}
+
+.parrafoProductos{
+    margin: 0 1em;
+    text-align: center;
+    color: var(--textDark);
+}
+
+.contactanos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--beige);
+}
+
+.footerContent{
+    grid-area: footer;
+}
+
+.titleContacto{
+    color: var(--redDark);
+    overflow:auto;
+    text-align: center;
+    padding-top: 2rem;
+    margin: auto 2rem;
+}
+
+.parrafoContacto{
+    color: var(--redDark);
+    margin-top: 1rem;
+    text-align: center;
+    font-size: large;
+}
+
+.correo{
+    margin: auto;
+    margin-bottom: 2rem;
+    color: var(--redDark);
+    font-weight: 800;
+    font-size: large;
+    text-decoration: none;
+}
+
+.ubicacion{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--redDark);
+    justify-content: center;
+}
+
+.titleUbicacion{
+    color: var(--beige);
+    overflow:auto;
+    text-align: center;
+    padding-top: 2rem;
+    margin: auto 2rem;
+}
+
+.direccion{
+    color: var(--beige);
+    margin-top: 1rem;
+    text-align: center;
+    font-size: large;
+}
+
+.maps{
+    margin: auto;
+    margin-bottom: 2rem;
+    color: var(--beige);
+    font-weight: 800;
+    font-size: large;
+    text-decoration: none;
+}
+
+.copy{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clasGray);
+    justify-content: center;
+}
+
+.copyText{
+    margin: 1rem;
+    color: var(--textWhite);
+}
+ 
+@media (min-width: 970px) {
+
+    .menuNav{
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 2rem;
+
+    }
+
+    .menuNav::before{
+       content: unset;
+    }
+    
+    .menuNav:has(.menuLink:target)::before{
+       display: none;
+    }
+
+    .openMenu, .closeMenu{
+       display:none
+    }
+
+    .menuLink{
+        position: unset;
+        background-color: unset;
+        width: unset;
+        max-width: unset;
+        gap: 1.5em;
+        grid-auto-flow: column;
+        padding: 0;
+        overflow-y: unset;
+        pointer-events: unset;
+        opacity: 1;
+        transition: none;
+    }
+
+    .menuLinka{
+        color: var(--textWhite);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    
+
+    .heroTitle{
+        color: var(--textWhite);
+        overflow:auto;
+        text-align: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin: auto 2rem;
+        border-bottom: solid var(--beige) 3px;
+    }
+    
+    .parrafoHero{
+        color: var(--whiteCler);
+        padding: 10%;
+        text-align: center;
+        font-size: large;
+    
+    }
+    .contentAside{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
+    }
+    .brunchDomingos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--redDark);
+        justify-content: center;
+        padding: 10% 0;
+    }
+
+    .celebraFiesta{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--beige);
+        justify-content: center;
+        padding: 10% 0;
+    }
+
+    .desayunar{
+        background-image: url(./Proyecto/Imágenes/Fondo2.jpg) ;
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }    
+
+    .titleDesayunar{
+        color: var(--textWhite);
+        overflow:auto;
+        text-align: center;
+        padding: 10% 0 2rem 0;
+    }
+    
+    .parrafoDesayunar{
+        color: var(--textWhite);
+        padding: unset;
+        text-align: center;
+        font-size: large;
+        
+    }
+
+    .buttonDesayunar{
+        margin: 60px 0 10% 0;
+    }
+
+    .heroTitle{
+        color: var(--textWhite);
+        overflow:auto;
+        text-align: center;
+        padding: 8% 2rem;
+        padding-bottom: 2rem;
+        margin: auto 2rem;
+        border-bottom: solid var(--beige) 3px;
+    }
+    
+    .parrafoHero{
+        color: var(--whiteCler);
+        padding: 5rem 0 10% 0;
+        text-align: center;
+        font-size: large;
+    
+    }
+
+    .iconProducts{
+        width: 180px;
+        margin: .5rem;
+    }
+
+    .productos{
+        grid-area: products;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 5rem 10%;
+    }
+
+    .productContents{
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+    }
+
+    .titleProductos{
+        margin: 0 1rem;
+        text-align: left;
+        color: var(--textDark);
+    }
+    
+    .parrafoProductos{
+        margin: 0 1em;
+        text-align: left;
+        color: var(--textDark);
+    }
+
+    .footerContent{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .titleContacto{
+        color: var(--redDark);
+        overflow:auto;
+        text-align: center;
+        padding-top: 2rem;
+        margin: 10% 0 0 0;
+    }
+    
+    .parrafoContacto{
+        color: var(--redDark);
+        margin: 1rem 0 0 0;
+        text-align: center;
+        font-size: large;
+    }
+
+    .correo{
+        margin-top: 1rem;
+        margin-bottom: 10%;
+        color: var(--redDark);
+        font-weight: 800;
+        font-size: large;
+        text-decoration: none;
+    }
+
+    .ubicacion{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--redDark);
+        justify-content: center;
+    }
+
+    .titleUbicacion{
+        color: var(--beige);
+        overflow:auto;
+        text-align: center;
+        padding-top: 2rem;
+        margin: 10% 0 0 0;
+    }
+
+    .direccion{
+        color: var(--beige);
+        margin: 1rem 0 0 0;
+        text-align: center;
+        font-size: large;
+    }
+
+    .maps{
+        margin-top: 1rem;
+        margin-bottom: 10%;
+        color: var(--beige);
+        font-weight: 800;
+        font-size: large;
+        text-decoration: none;
+    }
+
+    .copyText{
+        margin: 4%;
+        color: var(--textWhite);
+    }
+    
+}
